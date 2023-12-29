@@ -1,6 +1,6 @@
 {
   "name": "@rayyan98/coverage-on-diff",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "A tool to get code coverage on new lines added based on a diff",
   "main": "index.js",
   "scripts": {
