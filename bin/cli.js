@@ -83,6 +83,26 @@ const _ = require('lodash');
 
 const coverageOnDiff = require('../coverageOnDiff');
 
+/**
+ * 
+ * @param {number[]} array 
+ */
+function coalesceLineNumbers(array) {
+  const segments = array.reduce((newArray, value) => {
+    const lastSegment = newArray[newArray.length - 1];
+    if (lastSegment?.end === (value - 1)) {
+      lastSegment.end = value;
+    } else {
+      newArray.push({
+        start: value,
+        end: value,
+      })
+    }
+    return newArray;
+  }, [])
+  return segments.map((segment) => `${segment.start}-${segment.end}`)
+}
+
 function getColorMessage(percentage, msg) {
   if (percentage >= 80) {
     return chalk.green(msg);
@@ -139,8 +159,8 @@ try {
       data.push([`    ${key}`,
         getColorMessage(stmtPercentage, `${stmtPercentage}%`),
         getColorMessage(branchPercentage, `${branchPercentage}%`),
-        value.stmt.unCoveredLines.toString(),
-        value.lines]);
+        coalesceLineNumbers(value.stmt.unCoveredLines).toString(),
+        coalesceLineNumbers(value.lines)]);
     });
     const options = {
       columns: {
