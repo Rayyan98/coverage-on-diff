@@ -140,10 +140,11 @@ try {
    */
   if (argv.report.includes('text')) {
     const data = [];
-    data.push(['File', '% Stmt', '% Branch', 'Uncovered Line #s', 'Lines Changed']);
+    data.push(['File', '% Stmt', '% Branch', 'Uncovered Line #s', 'Uncovered Branch Line #s', 'Lines Changed']);
     data.push(['All changed files',
       getColorMessage(totalStmtPercentage, `${totalStmtPercentage}%`),
       getColorMessage(totalBranchPercentage, `${totalBranchPercentage}%`),
+      '',
       '',
       '']);
 
@@ -160,6 +161,7 @@ try {
         getColorMessage(stmtPercentage, `${stmtPercentage}%`),
         getColorMessage(branchPercentage, `${branchPercentage}%`),
         coalesceLineNumbers(value.stmt.unCoveredLines).toString(),
+        coalesceLineNumbers(value.branch.unCoveredLines.toString()),
         coalesceLineNumbers(value.lines)]);
     });
     const options = {
