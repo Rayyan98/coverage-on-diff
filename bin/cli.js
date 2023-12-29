@@ -100,7 +100,9 @@ function coalesceLineNumbers(array) {
     }
     return newArray;
   }, [])
-  return segments.map((segment) => `${segment.start}-${segment.end}`)
+  return segments.map(
+    (segment) => segment.start === segment.end ? `${segment.start}` : `${segment.start}-${segment.end}`
+  )
 }
 
 function getColorMessage(percentage, msg) {
@@ -161,7 +163,7 @@ try {
         getColorMessage(stmtPercentage, `${stmtPercentage}%`),
         getColorMessage(branchPercentage, `${branchPercentage}%`),
         coalesceLineNumbers(value.stmt.unCoveredLines).toString(),
-        coalesceLineNumbers(value.branch.unCoveredLines.toString()),
+        coalesceLineNumbers(value.branch.unCoveredLines).toString(),
         coalesceLineNumbers(value.lines)]);
     });
     const options = {
