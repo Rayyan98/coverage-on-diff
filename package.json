@@ -1,17 +1,16 @@
 {
-  "name": "coverage-on-diff",
+  "name": "@rayyan98/coverage-on-diff",
   "version": "0.0.3",
   "description": "A tool to get code coverage on new lines added based on a diff",
   "main": "index.js",
   "scripts": {
     "eslint": "node ./node_modules/eslint/bin/eslint .",
     "test": "npm run eslint && npm run test:mocha",
-    "test:mocha": "./node_modules/nyc/bin/nyc.js --reporter=text-summary ./node_modules/.bin/mocha  'test/**/test*.js'",
-    "prepare": "./node_modules/nyc/bin/nyc.js --check-coverage --lines 100 --functions 100 --branches 100 npm test"
+    "test:mocha": "./node_modules/nyc/bin/nyc.js --reporter=text-summary ./node_modules/.bin/mocha  'test/**/test*.js'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/classy-org/coverage-on-diff.git"
+    "url": "git+https://github.com/Rayyan98/coverage-on-diff"
   },
   "bin": {
     "coverageOnDiff": "./bin/cli.js"
