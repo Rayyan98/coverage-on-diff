@@ -37,9 +37,9 @@
     "sinon": "^7.1.1"
   },
   "bugs": {
-    "url": "https://github.com/classy-org/coverage-on-diff/issues"
+    "url": "https://github.com/Rayyan98/coverage-on-diff/issues"
   },
-  "homepage": "https://github.com/classy-org/coverage-on-diff#readme",
+  "homepage": "https://github.com/Rayyan98/coverage-on-diff#readme",
   "keywords": [
     "coverage",
     "diff",
