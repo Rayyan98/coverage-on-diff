@@ -1,5 +1,7 @@
 # Coverage On Diff
 
+Continuation of [coverage-on-diff](https://github.com/classy-org/coverage-on-diff)
+
 A tool that uses an [instanbul](https://istanbul.js.org/docs/advanced/alternative-reporters/) json code coverage report and git diff to calculate the code coverage on new lines added
 
 
